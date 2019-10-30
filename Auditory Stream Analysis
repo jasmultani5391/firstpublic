@@ -1,7 +1,7 @@
 import math
 import numpy as np
 import panda as pd
-
+import winsound
 #%
 # Determining identity of A-B-A triplets
 # 

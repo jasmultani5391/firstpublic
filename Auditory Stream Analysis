@@ -1,0 +1,87 @@
+import math
+import numpy as np
+import panda as pd
+
+#%
+# Determining identity of A-B-A triplets
+# 
+# A = 1400
+# octave = power(2,-1)
+# 
+# %calculating the dF to subtract from A in order to come up with B identity
+# %of ABA triplet
+# onesemitone = (1/12)*octave, dF = 58.33, B1 = 1341.7
+# threesemitone = 3*onesemitone, dF = 175, B3 = 1225
+# sixsemitone = 6*onesemitone, dF = 350, B6 = 1050
+# ninesemitone =  9*onesemitone, dF = 525, B9 = 875
+
+#%
+
+
+fs = 44100# sampling rate (per sec)
+durA = 0.28# sound duration, s
+pdur = .01# pause duration, s
+tramp = 0.01# ramp duration, s (5-10 ms is reasonable)
+high = 1400# frequency, Hz
+A = 1# sound amplitude, arbitrary units
+#NOTE: if we want to specify intensity in dB, say Level, then 
+t = durA * fs / fs# vector of time points
+s = math.sin(2 * 3.14 * high * t)# vector of sound waveform
+pnumpts = round(pdur * fs)#number of points in the pause
+p = np.zeros((1, pnumpts))
+s = A*s / ((np.mean(s*pdur*s))**.5)# normalize sound vector
+high = .join(s)
+
+
+
+
+
+#create low tone with 9 semitones dF
+low = 875
+devslowA = sin(2 * 3.14 * low * t)
+pnumpts = round(pdur * fs)
+p = zeros(1, pnumpts)
+devslowA = A * devslowA / sqrt(np.mean(devslowA *pdur* devslowA))
+low = .join(devslowA, p)
+
+high2afreq = 1400
+pdur2 = .28
+highA = sin(2 * pi * high2afreq * t)
+pnumpts2 = round(pdur2 * fs)
+p2 = zeros(1, pnumpts2)
+highA = A * highA / (np.mean(highA *pdur* highA))**.5
+high2 = .join(highA, p2)
+
+
+j = 1; 
+print(j)
+sound(segregation, fs)
+end
+
+pause(10)
+
+
+
+#create low tone with 9 semitones dF
+lowint = 1225
+devslowAint = sin(2 * 3.14 * lowint * t)
+pnumpts = round(pdur * fs)
+p = zeros(1, pnumpts)
+devslowAint = A * devslowAint / (np.mean(devslowAint *elmul* devslowAint))**.5
+lowint = .join(devslowAint, p)
+
+high2afreqint = 1400
+pdur2 = .28
+highint = math.sin(2 * 3.14 * high2afreqint * t)
+pnumpts2 = round(pdur2 * fs)
+p2 = zeros(1, pnumpts2)
+highint = A * highint / (np.mean(highint *elmul* highint))**.5
+high2int = .join(highint, p2)
+playthis = ['high', 'lowint', 'high2int']
+
+counter = 0
+while counter <= 9:
+  print playthis
+  counter + 1;
+
+print(integration); 
